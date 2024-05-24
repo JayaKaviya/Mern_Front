@@ -26,7 +26,7 @@ const Login = () => {
     try {
 
       setLoading(true);
-      const { data } = await axios.post(`https://mern-back-hxv3.onrender.com/login`, {
+      const { data } = await axios.post(`https://mern-back-hxv3.onrender.com/api/login`, {
         email,
         password,
       });
