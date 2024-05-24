@@ -1,8 +1,7 @@
 import { useState,useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from 'axios'; 
-import UserRoute from '../../components/routes/UserRoute.mjs'; 
-import {toast} from "react-toastify"; 
+
 import Post from "../../components/cards/Post.mjs";
 import { RollbackOutlined } from "@ant-design/icons"; 
 import Link from "next/link";

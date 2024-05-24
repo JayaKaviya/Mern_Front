@@ -1,7 +1,5 @@
-import {SyncOutlined} from "@ant-design/icons"
-import ProfileUpdate from "../../pages/user/profile/update.mjs" 
 
-import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox,MDBSelect,MDBText } from 'mdb-react-ui-kit';
+import { MDBInput } from 'mdb-react-ui-kit';
 
 const AuthForm =({
    handleSubmit, 

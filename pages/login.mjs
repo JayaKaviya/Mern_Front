@@ -1,8 +1,7 @@
 import { useState, useContext } from "react";
 import axios from 'axios';
 import { toast } from "react-toastify";
-import { Card } from 'antd';
-import { Modal } from "antd";
+
 import Link from "next/link";
 
 import AuthForm from "../components/forms/AuthForm.mjs";

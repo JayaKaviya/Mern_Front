@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import { Avatar, Card } from "antd";
+import { Card } from "antd";
 import axios from 'axios';
 import moment from "moment";
 import { useRouter } from 'next/router';

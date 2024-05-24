@@ -8,7 +8,7 @@ import { UserContext } from "../context/index.mjs";
 
 import AuthForm from "../components/forms/AuthForm"; 
 import { useRouter } from "next/router"; 
-import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox,MDBSelect,MDBText } from 'mdb-react-ui-kit';
+import { MDBContainer, MDBCol, MDBRow } from 'mdb-react-ui-kit';
 
 const Register=()=> {  
     const [name,setName]=useState("");

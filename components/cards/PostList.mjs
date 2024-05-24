@@ -1,19 +1,12 @@
 import {useContext} from "react";
 
+ 
 
-import renderHTML from 'react-render-html';
-import moment from 'moment'; 
-import{Avatar} from "antd";  
-import PostImage from "../images/PostImage.mjs"; 
-
-import {HeartOutlined,HeartFilled,CommentOutlined,EditOutlined,DeleteOutlined} from '@ant-design/icons';
 import {UserContext} from "../../context/index.mjs";  
 
 import { useRouter } from "next/router"; 
 
-import { imageSource } from '../../functions/index.mjs'; 
  
-import Link from "next/link"; 
 import Post  from "../cards/Post.mjs"
 
 

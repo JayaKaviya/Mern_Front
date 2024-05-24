@@ -7,8 +7,8 @@ import Link from "next/link";
 import { UserContext } from "../../context/index.mjs"
 import ForgotPasswordForm from "../../components/forms/ForgotPasswordForm.mjs";
 import { useRouter } from "next/router";
-import { set } from "mongoose"; 
-import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox,MDBText } from 'mdb-react-ui-kit';
+
+import { MDBContainer, MDBCol, MDBRow } from 'mdb-react-ui-kit';
 
 const ForgotPassword=()=> {  
   

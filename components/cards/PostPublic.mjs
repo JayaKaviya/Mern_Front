@@ -6,7 +6,7 @@ import PostImage from "../images/PostImage.mjs";
 import { HeartOutlined, HeartFilled, CommentOutlined } from '@ant-design/icons';
 import { UserContext } from "../../context/index.mjs";
 import { imageSource } from '../../functions/index.mjs';
-import Link from "next/link";
+
 
 const PostPublic = ({ post, handleDelete, handleLike, handleUnlike, handleComment, commentsCount = 2, removeComment, inSinglePost }) => {
     const [state] = useContext(UserContext);

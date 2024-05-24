@@ -15,7 +15,7 @@ import Link from 'next/link';
 import CommentForm from "../../components/forms/Commentform"; 
 
 import {Modal,Pagination} from "antd"; 
-import Search from "antd/es/transfer/search";
+
 import SearchUser from "../../components/SearchUser.mjs"; 
 
 import io from "socket.io-client"

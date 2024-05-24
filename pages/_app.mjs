@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React from 'react';
 import {UserProvider} from '../context';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Nav from '../components/Nav'  
