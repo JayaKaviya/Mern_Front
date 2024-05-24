@@ -19,7 +19,7 @@ const PostComments =()=>{
 
     const fetchPost=async ()=>{ 
         try{ 
-           const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/user-post/${_id}`); 
+           const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/api/user-post/${_id}`); 
            setPost(data);
         } 
         catch(err){ 
@@ -33,7 +33,7 @@ const PostComments =()=>{
         let answer=window.confirm("Are you sure ?"); 
         if(!answer) return;
         try{ 
-              const {data}=await axios.put('https://mern-back-hxv3.onrender.com/remove-comment',{ 
+              const {data}=await axios.put('https://mern-back-hxv3.onrender.com/api/remove-comment',{ 
                 postId, 
                 comment,
               }); 

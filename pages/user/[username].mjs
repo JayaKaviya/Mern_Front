@@ -26,7 +26,7 @@ const Username = () => {
 
     const fetchUser = async () => {
         try {
-            const { data } = await axios.get(`https://mern-back-hxv3.onrender.com/user/${router.query.username}`);
+            const { data } = await axios.get(`https://mern-back-hxv3.onrender.com/api/user/${router.query.username}`);
             setUser(data);
         } catch (err) {
             console.log(err);

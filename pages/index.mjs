@@ -25,10 +25,10 @@ const Home = ({ posts }) => {
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="TRENDCRAZE" />
-      <meta property="og:url" content="http://trendcraze.com" />
+      <meta property="og:url" content="https://mern-front-hxv3.onrender.com" />
       <meta
         property="og:image:secure_url"
-        content="http://trendcraze.com/images//social_network.jpg"
+        content="https://mern-front-hxv3.onrender.com/images/social_network.jpg"
       />
     </Head>
   );
@@ -79,7 +79,7 @@ const Home = ({ posts }) => {
 export async function getServerSideProps(context) {
   // const backendUrl = "http://localhost:8000";
   // const { data } = await axios.get(`${backendUrl}/api/posts`);
-  const { data } = await axios.get(`https://mern-back-hxv3.onrender.com//api/posts`);
+  const { data } = await axios.get(`https://mern-back-hxv3.onrender.com/api/posts`);
   return {
     props: {
       posts: data,

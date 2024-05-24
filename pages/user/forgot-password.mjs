@@ -27,7 +27,7 @@ const ForgotPassword=()=> {
         try{ 
 
           setLoading(true);
-            const {data}=await axios.post(`https://mern-back-hxv3.onrender.com/forgot-password`,{ 
+            const {data}=await axios.post(`https://mern-back-hxv3.onrender.com/api/forgot-password`,{ 
             
             email, 
             newPassword,

@@ -52,7 +52,7 @@ const ProfileUpdate=()=> {
            // const {data}=await axios.post(`${process.env.NEXT_PUBLIC_API}/register`,{ 
            //name:name - when key and value same , no need to write like this . 
 
-            const {data}=await axios.put(`https://mern-back-hxv3.onrender.com/profile-update`,{  
+            const {data}=await axios.put(`https://mern-back-hxv3.onrender.com/api/profile-update`,{  
             username, 
             about,
             name,   
@@ -101,7 +101,7 @@ const ProfileUpdate=()=> {
       // console.log([...formData]); 
       setUploading(true); 
       try {
-          const {data}= await axios.post("https://mern-back-hxv3.onrender.com/upload-image", formData);
+          const {data}= await axios.post("https://mern-back-hxv3.onrender.com/api/upload-image", formData);
         
           // console.log("uploaded image =>", data); 
           setImage({ 

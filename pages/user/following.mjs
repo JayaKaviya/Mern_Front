@@ -24,7 +24,7 @@ const Following =()=>{
 
     const fetchFollowing=async()=>{ 
         try{ 
-            const {data}=await axios.get("https://mern-back-hxv3.onrender.com/user-following"); 
+            const {data}=await axios.get("https://mern-back-hxv3.onrender.com/api/user-following"); 
             console.log('following =>',data); 
             setPeople(data);
         }catch(err){ 
@@ -46,7 +46,7 @@ const Following =()=>{
     const handleUnfollow=async(user)=>{ 
        
         try{ 
-             const {data}=await axios.put('https://mern-back-hxv3.onrender.com/user-unfollow',{_id :user._id}); 
+             const {data}=await axios.put('https://mern-back-hxv3.onrender.com/api/user-unfollow',{_id :user._id}); 
 
                //update local storage,user & keep token 
                let auth=JSON.parse(localStorage.getItem("auth")); 

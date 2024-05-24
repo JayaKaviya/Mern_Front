@@ -66,7 +66,7 @@ const Home = () => {
   
     useEffect(()=>{  
           try{                    //we can also use then instead of async await 
-            axios.get('https://mern-back-hxv3.onrender.com/total-posts').then(({data}) => setTotalPosts(data) );
+            axios.get('https://mern-back-hxv3.onrender.com/api/total-posts').then(({data}) => setTotalPosts(data) );
           } 
           catch(err){ 
             console.log(err)
@@ -76,7 +76,7 @@ const Home = () => {
 
     const newsFeed=async()=>{ 
         try{ 
-            const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/news-feed/${page}`) 
+            const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/api/news-feed/${page}`) 
             // console.log('user posts', data) 
             //user posts
 
@@ -89,7 +89,7 @@ const Home = () => {
     
     const findPeople=async()=>{ 
         try{ 
-            const {data}=await axios.get('https://mern-back-hxv3.onrender.com/find-people'); 
+            const {data}=await axios.get('https://mern-back-hxv3.onrender.com/api/find-people'); 
             setPeople(data);
         }
         catch(err){ 
@@ -106,7 +106,7 @@ const Home = () => {
         // console.log('post =>', content); 
 
         try{ 
-             const {data}= await axios.post('https://mern-back-hxv3.onrender.com/create-post',{content,image}); 
+             const {data}= await axios.post('https://mern-back-hxv3.onrender.com/api/create-post',{content,image}); 
             //  console.log("create data response =>",data) 
 
              if(data.error){ 
@@ -143,7 +143,7 @@ const Home = () => {
         //     console.log("uploaded image =>", url, public_id);
 
         try {
-            const {data}= await axios.post("https://mern-back-hxv3.onrender.com/upload-image", formData);
+            const {data}= await axios.post("https://mern-back-hxv3.onrender.com/api/upload-image", formData);
           
             // console.log("uploaded image =>", data); 
             setImage({ 
@@ -170,7 +170,7 @@ const Home = () => {
             const answer=window.confirm('Are you sure you want to delete this post?') 
             if(!answer) return; 
 
-            const {data}=await axios.delete(`https://mern-back-hxv3.onrender.com/delete-post/${post._id}`); 
+            const {data}=await axios.delete(`https://mern-back-hxv3.onrender.com/api/delete-post/${post._id}`); 
             toast.error('Post deleted') 
             newsFeed();
 
@@ -182,7 +182,7 @@ const Home = () => {
       const handleFollow =async(user)=>{ 
         // console.log('add this user to following list',user); 
         try{ 
-           const {data}=await axios.put('https://mern-back-hxv3.onrender.com/user-follow',{_id:user._id}); 
+           const {data}=await axios.put('https://mern-back-hxv3.onrender.com/api/user-follow',{_id:user._id}); 
            //    console.log('Handle follow response =>',data); 
 
             //update local storage,user & keep token 
@@ -211,7 +211,7 @@ const Home = () => {
         // console.log('like this post =>',_id); 
         try{ 
           
-          const {data}=await axios.put('https://mern-back-hxv3.onrender.com/like-post',{_id}); 
+          const {data}=await axios.put('https://mern-back-hxv3.onrender.com/api/like-post',{_id}); 
         //   console.log('liked', data); 
           newsFeed();
 
@@ -226,7 +226,7 @@ const Home = () => {
         // console.log('unlike this post =>',_id); 
         try{ 
           
-            const {data}=await axios.put('https://mern-back-hxv3.onrender.com/unlike-post',{_id}); 
+            const {data}=await axios.put('https://mern-back-hxv3.onrender.com/api/unlike-post',{_id}); 
             // console.log('unliked', data); 
             newsFeed();
   
@@ -248,7 +248,7 @@ const Home = () => {
         //   console.log('save comment to db',comment) 
 
         try{ 
-             const {data}=await axios.put('https://mern-back-hxv3.onrender.com/add-comment',{ 
+             const {data}=await axios.put('https://mern-back-hxv3.onrender.com/api/add-comment',{ 
                 postId: currentPost._id, 
                 comment,
              }); 
@@ -267,7 +267,7 @@ const Home = () => {
         let answer=window.confirm("Are you sure ?"); 
         if(!answer) return;
         try{ 
-              const {data}=await axios.put('https://mern-back-hxv3.onrender.com/remove-comment',{ 
+              const {data}=await axios.put('https://mern-back-hxv3.onrender.com/api/remove-comment',{ 
                 postId, 
                 comment,
               }); 

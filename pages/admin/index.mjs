@@ -19,7 +19,7 @@ const Admin = () => {
 
     const newsFeed = async () => { 
         try { 
-            const { data } = await axios.get(`https://mern-back-hxv3.onrender.com/posts`);
+            const { data } = await axios.get(`https://mern-back-hxv3.onrender.com/api/posts`);
             setPosts(data);
         } catch(err) { 
             console.log(err);
@@ -31,7 +31,7 @@ const Admin = () => {
             const answer = window.confirm('Are you sure you want to delete this post?');
             if (!answer) return; 
 
-            await axios.delete(`https://mern-back-hxv3.onrender.com/admin/delete-post/${post._id}`);
+            await axios.delete(`https://mern-back-hxv3.onrender.com/api/admin/delete-post/${post._id}`);
             toast.error('Post deleted');
             newsFeed();
         } catch(err) { 
