@@ -17,7 +17,7 @@ const SearchUser=()=>{
         //   console.log(`Find "${query}" from db`); 
       try{ 
 
-         const {data}=await axios.get(`/search-user/${query}`); 
+         const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/search-user/${query}`); 
          // console.log('search user res =>',data);
          setResult(data);
       }catch(err){ 
@@ -30,7 +30,7 @@ const SearchUser=()=>{
      const handleFollow =async(user)=>{ 
       // console.log('add this user to following list',user); 
       try{ 
-         const {data}=await axios.put('/user-follow',{_id:user._id}); 
+         const {data}=await axios.put('https://mern-back-hxv3.onrender.com/user-follow',{_id:user._id}); 
          //    console.log('Handle follow response =>',data); 
 
           //update local storage,user & keep token 
@@ -54,7 +54,7 @@ const SearchUser=()=>{
     const handleUnfollow=async(user)=>{ 
        
       try{ 
-           const {data}=await axios.put('/user-unfollow',{_id :user._id}); 
+           const {data}=await axios.put('https://mern-back-hxv3.onrender.com/user-unfollow',{_id :user._id}); 
 
              //update local storage,user & keep token 
              let auth=JSON.parse(localStorage.getItem("auth")); 

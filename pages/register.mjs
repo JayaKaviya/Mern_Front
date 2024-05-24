@@ -31,7 +31,7 @@ const Register=()=> {
         // const {data}=await axios.post(`${process.env.NEXT_PUBLIC_API}/register`,{ 
             //name:name - when key and value same , no need to write like this . 
 
-            const {data}=await axios.post(`/register`,{ 
+            const {data}=await axios.post(`https://mern-back-hxv3.onrender.com/register`,{ 
             name,   
             email, 
             password,

@@ -15,7 +15,7 @@ const UserRoute = ({ children }) => {
 
     const getCurrentUser = async () => {
         try {
-            const { data } = await axios.get(`/current-user`);  
+            const { data } = await axios.get(`https://mern-back-hxv3.onrender.com/current-user`);  
 
             // const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API}
             // /current-user`, {

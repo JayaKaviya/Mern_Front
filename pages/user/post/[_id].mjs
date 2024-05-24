@@ -28,7 +28,7 @@ const EditPost=()=>{
          
         try{ 
             //fetched the details of post using its id from db
-            const {data}=await axios.get(`/user-post/${_id}`); 
+            const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/user-post/${_id}`); 
             setPost(data);
             setContent(data.content); 
             setImage(data.image);
@@ -45,7 +45,7 @@ const EditPost=()=>{
 
      try{ 
 
-        const {data}=await axios.put(`/update-post/${_id}`,{content,image}); 
+        const {data}=await axios.put(`https://mern-back-hxv3.onrender.com/update-post/${_id}`,{content,image}); 
 
         if(data.error){
             toast.error(data.error);
@@ -73,7 +73,7 @@ const EditPost=()=>{
         setUploading(true);
 
         try {
-            const {data}= await axios.post("/upload-image", formData);
+            const {data}= await axios.post("https://mern-back-hxv3.onrender.com/upload-image", formData);
           
             // console.log("uploaded image =>", data); 
             setImage({ 
