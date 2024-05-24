@@ -79,8 +79,9 @@ const SinglePost=({post})=>{
  
 
 export async  function getServerSideProps(ctx){  
-    const backendUrl = 'http://localhost:8000';
-    const {data}=await axios.get(`${backendUrl}/api/post/${ctx.params._id}`); 
+    // const backendUrl = 'http://localhost:8000';
+    // const {data}=await axios.get(`${backendUrl}/api/post/${ctx.params._id}`); 
+    const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/api/post/${ctx.params._id}`); 
     // console.log(data); 
     return{ 
        props: { 
