@@ -1,0 +1,91 @@
+
+
+import ParallaxBG from "../../../components/cards/ParallaxBG.mjs";
+import axios from "axios"; 
+import PostPublic from "../../../components/cards/PostPublic.mjs"  
+import Post from "../../../components/cards/Post.mjs";
+import Head from "next/head"; 
+
+
+const SinglePost=({post})=>{ 
+   
+    const head=()=>(
+        <Head> 
+        <title>TRENDCRAZE - A social network by Jaya Kaviya</title> 
+        <meta 
+              name="description"  
+              content={post.content}
+        />  
+
+        {/* this will be used when u post this in social media */}
+        <meta  
+        property="og:description" 
+        content="A social network by Developer JayaKaviya" 
+        /> 
+
+        <meta property="og:type" content="website" /> 
+        <meta property="og:site_name" content="TRENDCRAZE" />  
+        <meta property="og:url" content={`http://trendcraze.com/post/view/${post._id}`}/> 
+        <meta 
+           property="og:image:secure_url" 
+           content={imageSource(post)}  
+        /> 
+
+      </Head>
+
+    ); 
+
+
+     const imageSource=(post)=>{ 
+        if(post.image){ 
+            return post.image.url; 
+        }
+        else{ 
+         return '/images/logo.png';  
+        }
+    }; 
+
+    return( 
+     <>   
+       
+       {head()}
+     
+     <ParallaxBG url="/images/post_page.jpg" children ="POST" />   
+
+
+     {/* <pre>{JSON.stringify(posts,null,4)}</pre> */} 
+
+
+    <div className="container"> 
+    <div className="row pt-5">  
+
+     
+      <div className="col-md-8 offset-md-2">
+       
+      <PostPublic key={post._id} post={post} inSinglePost />
+
+          
+        </div>
+  
+
+    </div>
+    </div> 
+    <div style={{ marginBottom: "100px" }}> " " </div>
+
+
+     </>
+    );
+}; 
+ 
+
+export async  function getServerSideProps(ctx){  
+    const backendUrl = 'http://localhost:8000';
+    const {data}=await axios.get(`${backendUrl}/api/post/${ctx.params._id}`); 
+    // console.log(data); 
+    return{ 
+       props: { 
+        post: data,
+       },
+    };
+}
+export default SinglePost;

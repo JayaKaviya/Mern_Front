@@ -1,0 +1,336 @@
+import {SyncOutlined} from "@ant-design/icons"
+import ProfileUpdate from "../../pages/user/profile/update.mjs"
+
+const AuthForm =({
+   handleSubmit, 
+   name,setName, 
+   email,setEmail,
+   password,setPassword,
+   secret,setSecret, 
+   loading, 
+   page, 
+   username,setUsername, 
+   about,setAbout,  
+   profileUpdate,
+
+})=>( 
+    <form onSubmit={handleSubmit}>  
+    
+    {profileUpdate && ( <div className="form-group p-2"> 
+            <small>
+                <label className="text-muted">Username</label>
+            </small>
+            <input type="text" 
+            value={username}
+            onChange={ (e) => setUsername(e.target.value)}
+            className="form-control"
+            placeholder="Enter username"/>
+    </div> )}
+
+    {profileUpdate && (<div className="form-group p-2"> 
+            <small>
+                <label className="text-muted">About</label>
+            </small>
+            <input type="text" 
+            value={about}
+            onChange={ (e) => setAbout(e.target.value)}
+            className="form-control"
+            placeholder="Write about yourself..."/>
+    </div> )}
+
+
+
+
+
+    {page !== "login" && ( 
+    <div className="form-group p-2"> 
+            <small>
+                <label className="text-muted">Your name</label>
+            </small>
+            <input type="text" 
+            value={name}
+            onChange={ (e) => setName(e.target.value)}
+            className="form-control"
+            placeholder="Enter name"/>
+    </div>   )} 
+
+   
+
+    <div className="form-group p-2"> 
+            <small>
+                <label className="text-muted">Email address</label>
+            </small>
+            <input  
+              value={email}
+              onChange={ (e) => setEmail(e.target.value)}
+            type="email" 
+            className="form-control"
+            placeholder="Enter email"
+             disabled={profileUpdate}
+            />
+    </div> 
+
+    <div className="form-group p-2"> 
+            <small>
+                <label className="text-muted">Password</label>
+            </small>
+            <input  
+             value={password}
+             onChange={ (e) => setPassword(e.target.value)}
+            type="password" 
+            className="form-control"
+            placeholder="Enter password"/>
+    </div> 
+
+    {page !=="login" && 
+        <>
+        <div className="form-group p-2"> 
+            <small>
+                <label className="text-muted">Pick a question</label>
+            </small> 
+             <select className="form-control"> 
+                    <option>If you could time travel, which era would you visit first?</option>
+                    <option>What fictional character do you most identify with?</option>
+                    <option>If you could possess any superpower, what would it be?</option> 
+                    <option>What is your dream vacation destination?</option> 
+                    <option>What was the first concert you ever attended?</option>
+             </select> 
+             <small className="form-text text-muted">
+             In case you forget your password, you can utilize this option to reset it.
+            </small>
+        </div> 
+
+    <div className="form-group p-2">
+        <input  
+          value={secret}
+          onChange={ (e) => setSecret(e.target.value)}
+        type="text"  
+        className="form-control" 
+        placeholder="write your answer here" />
+    </div> 
+    </> }
+    
+    <div className="form-group p-2">
+    <button 
+    disabled={ 
+      profileUpdate ? loading : 
+      page === "login" 
+        ? !email|| !password || loading
+        : !name || !email || !password || !secret  || loading }
+    className="btn btn-secondary btn-gradient  col-12" data-mdb-ripple-init>
+      {/* Submit */} 
+      {loading ? <SyncOutlined spin className="py-1"/> : "Submit"}
+      </button>
+    </div>
+  </form> 
+) 
+export default AuthForm 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <MDBContainer fluid className="p-3 my-5 h-custom">
+
+      <MDBRow>
+
+        <MDBCol col='10' md='6'>
+          <img src="/images/draw.svg" class="img-fluid" alt="Sample image" />
+        </MDBCol>
+
+        <MDBCol col='4' md='6'>
+
+          <div className="d-flex flex-row align-items-center justify-content-center">
+
+      
+
+          <MDBInput wrapperClass='mb-4' label='Email address' id='formControlLg' type='email' size="lg"/>
+          <MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg"/>
+
+          <div className="d-flex justify-content-between mb-4">
+            <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
+            <a href="!#">Forgot password?</a>
+          </div>
+
+          <div className='text-center text-md-start mt-4 pt-2'>
+            <MDBBtn className="mb-0 px-5" size='lg'>Login</MDBBtn>
+            <p className="small fw-bold mt-2 pt-1 mb-2">Don't have an account? <a href="#!" className="link-danger">Register</a></p>
+          </div>
+
+        </MDBCol>
+
+      </MDBRow>
+
+   
+
+    </MDBContainer> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+login : 
+import {useState,useContext} from "react"; 
+import axios from 'axios'; 
+import {toast} from "react-toastify"; 
+
+import {Modal} from "antd";
+import Link from "next/link";
+
+import AuthForm from "../components/forms/AuthForm.mjs"; 
+
+import {useRouter} from "next/router"; 
+import { UserContext } from "../context/index.mjs";
+
+const Login=()=> {  
+   
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
+    const[loading,setLoading]=useState(false);  
+
+    const [state,setState]=useContext(UserContext);
+
+    const router=useRouter();
+    
+     const handleSubmit= async(e)=> { 
+        e.preventDefault();  
+        try{ 
+
+          setLoading(true);
+        // console.log(name,email,password,secret); 
+        // const {data}=await axios.post(`${process.env.NEXT_PUBLIC_API}/login`,{ 
+            //name:name - when key and value same , no need to write like this .
+             
+            const {data}=await axios.post(`/login`,{
+            email, 
+            password,
+           
+    
+           });  
+          //  Router.push("/");  
+           
+          if(data.error){ 
+            toast.error(data.error) 
+            setLoading(false)
+          } 
+          else{  
+
+             //update context
+           setState({ 
+            user: data.user, 
+            token : data.token,
+
+           }); 
+           
+           //save in local storage       key
+           window.localStorage.setItem('auth',JSON.stringify(data)); 
+
+         
+              // router.push("/user/dashboard"); 
+               router.push("/user/dashboard"); 
+
+          }
+         
+          
+        } 
+      catch(err) {
+        // console.log(err);
+        
+             toast.error(err.response.data); 
+             setLoading(false);
+      }
+        
+     };
+    
+     if(state && state.token) router.push("/user/dashboard"); 
+
+    return( 
+        <div className="container-fluid">  
+        {/* bg-danger bg-gradient */}
+           <div className="row py-5 text-light bg-default-image"> 
+             <div className="col text-center"> 
+                 <h1>Login</h1>
+              </div>
+            </div>  
+         
+          {/* {loading ?<h1>Loading</h1>:""} */}
+               
+
+            <div className="row py-5"> 
+               <div className="col-md-6 offset-md-3">
+                 
+
+                <AuthForm 
+                handleSubmit={handleSubmit} 
+               
+                email={email} 
+                setEmail={setEmail} 
+                password={password} 
+                setPassword={setPassword}  
+                loading={loading} 
+                page="login"
+                />
+
+
+                </div>
+                </div> 
+
+                
+                  
+                  <div className="row">  
+                  <div className="col"> 
+                   <p className="text-center">Not yet registered ? {" "}
+                   <Link href="/register" legacyBehavior>
+                       <a  >Register</a>  
+                    </Link>
+                    </p>
+                  </div>
+
+                  </div> 
+
+                  <div className="row">  
+                  <div className="col"> 
+                   <p className="text-center">
+                   <Link href="/user/forgot-password" legacyBehavior>
+                       <a className="text-danger" >Forgot password </a>  
+                    </Link>
+                    </p>
+                  </div>
+
+                  </div>
+              
+              
+                 </div>
+        
+    );
+};
+export default Login;

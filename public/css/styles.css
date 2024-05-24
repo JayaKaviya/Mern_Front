@@ -1,0 +1,90 @@
+/* styles.css */
+/* styles.css */
+
+
+
+
+/* img{ 
+    width : 500px; 
+} 
+
+body{ 
+    background-color: #f50e5b !important;
+} 
+
+bg-maroon bg-darken-xl */  
+
+/* In your CSS file */
+/* Style the selected option */
+.select:not(.disabled) .selected {
+    font-size: 10px; /* Larger font size for selected option */
+}
+
+/* Style the dropdown options */
+.select:not(.disabled) .dropdown-toggle {
+    font-size: 10px; /* Smaller font size for dropdown options */
+}
+
+
+.bg-default-image{ 
+    background-image: url("/images/s_m.jpg");  
+    background-size: 100%;  
+    /* background-size: 300px 150px;  
+      */
+        /* background-size: 100% 70%;   */
+        background-repeat: no-repeat;
+    
+    height : 150px; 
+    text-shadow: 2px 2px 8px #000; 
+    filter: brightness(90%); 
+}  
+
+.bg-profile-image {
+    background-image: url("/images/p.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 150px;
+    text-shadow: 2px 2px 8px #000;
+     
+    filter: brightness(80%); /* Adjust brightness as needed (e.g., 80% brightness) */
+}
+
+
+.shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Customize the shadow as needed */
+  } 
+  
+  
+  .label-left {
+    text-align: left !important;
+  }
+
+/* .logo{ 
+    text-shadow: 1px 1.5px rgb(152, 214, 235);
+}  */
+
+.nav .active{ 
+   background-color:#ea266b !important; 
+   color: white !important; 
+   border: none !important; /* Remove border */
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add shadow */ 
+   border-radius: 0 !important;
+} 
+ 
+.nav { 
+    border: none !important;
+    overflow: hidden; /* Ensure navbar does not extend beyond its container */
+  }
+.pointer{ 
+    cursor:pointer;
+}
+.nav-tabs{
+    display: flex;
+    justify-content: space-evenly;
+} 
+
+.col-md-4 {
+    height: 500px; /* Adjust the height as needed */
+  }
+  
+  
