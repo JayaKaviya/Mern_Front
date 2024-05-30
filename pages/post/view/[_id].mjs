@@ -25,7 +25,7 @@ const SinglePost=({post})=>{
 
         <meta property="og:type" content="website" /> 
         <meta property="og:site_name" content="TRENDCRAZE" />  
-        <meta property="og:url" content={`https://mern-front-hxv3.onrender.com/post/view/${post._id}`}/> 
+        <meta property="og:url" content={`https://mern-front-rprc.onrender.com/post/view/${post._id}`}/> 
         <meta 
            property="og:image:secure_url" 
            content={imageSource(post)}  

@@ -25,10 +25,10 @@ const Home = ({ posts }) => {
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="TRENDCRAZE" />
-      <meta property="og:url" content="https://mern-front-hxv3.onrender.com" />
+      <meta property="og:url" content="https://mern-front-rprc.onrender.com" />
       <meta
         property="og:image:secure_url"
-        content="https://mern-front-hxv3.onrender.com/images/social_network.jpg"
+        content="https://mern-front-rprc.onrender.com/images/social_network.jpg"
       />
     </Head>
   );
