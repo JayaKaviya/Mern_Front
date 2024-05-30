@@ -15,7 +15,7 @@ const AdminRoute = ({ children }) => {
 
     const getCurrentAdmin = async () => {
         try {
-            const { data } = await axios.get(`https://mern-back-hxv3.onrender.com/current-admin`);  
+            const { data } = await axios.get(`https://mern-back-hxv3.onrender.com/api/current-admin`);  
  
             if (data.ok) setOk(true); 
         } catch(err) { 

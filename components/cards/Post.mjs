@@ -59,7 +59,7 @@ const Post = ({ post, handleDelete, handleLike, handleUnlike, handleComment,comm
 
                         {state && state.user && state.user._id === post.postedBy._id && (
                             <>
-                                <EditOutlined onClick={() => router.push(`/user/post/${post._id}`)} className="text-danger pt-2 h5 px-2 mx-auto" />
+                                <EditOutlined onClick={() => router.push(`https://mern-front-rprc.onrender.com/user/post/${post._id}`)} className="text-danger pt-2 h5 px-2 mx-auto" />
                                 <DeleteOutlined onClick={() => handleDelete(post)} className="text-danger pt-2 h5 px-2" />
                             </>
                         )}

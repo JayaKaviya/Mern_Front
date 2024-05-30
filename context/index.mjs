@@ -33,7 +33,7 @@ axios.defaults.headers.common["Authorization"]=`Bearer ${token}`;
         { 
            setState(null); 
            window.localStorage.removeItem('auth'); 
-           router.push("/login");
+           router.push("https://mern-front-rprc.onrender.com/login");
         }
     }
    )
