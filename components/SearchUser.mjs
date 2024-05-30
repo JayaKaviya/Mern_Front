@@ -17,13 +17,13 @@ const SearchUser=()=>{
         //   console.log(`Find "${query}" from db`); 
       try{ 
 
-         const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/search-user/${query}`); 
+         const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/api/search-user/${query}`); 
          // console.log('search user res =>',data);
          setResult(data); 
-         console.log(data);
-         if (data.error=="No user found")
+        //  console.log(data);
+         if (data.error=="No User found")
           { 
-            toast.error(`No user found`); 
+            toast.error(`No User found`); 
           }
          
       }catch(err){ 
