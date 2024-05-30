@@ -39,7 +39,7 @@ const Login = () => {
           token: data.token,
         });
         window.localStorage.setItem('auth', JSON.stringify(data));
-        router.push("https://mern-front-hxv3.onrender.com/user/dashboard");
+        router.push("https://mern-front-rprc.onrender.com/user/dashboard");
       }
     }
     catch (err) {
