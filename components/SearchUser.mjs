@@ -20,8 +20,8 @@ const SearchUser=()=>{
          const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/search-user/${query}`); 
          // console.log('search user res =>',data);
          setResult(data); 
-         
-         if (data=="No user found")
+         console.log(data);
+         if (data.error=="No user found")
           { 
             toast.error(`No user found`); 
           }
