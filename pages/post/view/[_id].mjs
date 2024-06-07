@@ -11,7 +11,7 @@ const SinglePost=({post})=>{
    
     const head=()=>(
         <Head> 
-        <title>TRENDCRAZE - A social network by Jaya Kaviya</title> 
+        <title>LETSCONNECT - A social network by Jaya Kaviya</title> 
         <meta 
               name="description"  
               content={post.content}
@@ -24,7 +24,7 @@ const SinglePost=({post})=>{
         /> 
 
         <meta property="og:type" content="website" /> 
-        <meta property="og:site_name" content="TRENDCRAZE" />  
+        <meta property="og:site_name" content="LETSCONNECT" />  
         <meta property="og:url" content={`https://mern-front-rprc.onrender.com/post/view/${post._id}`}/> 
         <meta 
            property="og:image:secure_url" 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ParallaxBG = ({ url, children = "TRENDCRAZE" }) => {
+const ParallaxBG = ({ url, children = "LETSCONNECT" }) => {
   return (
     <div
       className="container-fluid parallax-container"

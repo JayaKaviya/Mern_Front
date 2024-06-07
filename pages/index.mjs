@@ -11,7 +11,7 @@ const Home = ({ posts }) => {
 
   const head = () => (
     <Head>
-      <title>TRENDCRAZE - A social network by Jaya Kaviya</title>
+      <title>LETSCONNECT - A social network by Jaya Kaviya</title>
       <meta
         name="description"
         content="A social network by Developer JayaKaviya"
@@ -20,11 +20,11 @@ const Home = ({ posts }) => {
       {/* this will be used when u post this in social media */}
       <meta
         property="og:description"
-        content="A social network by Developer JayaKaviya"
+        content="A social network app by Developer JayaKaviya"
       />
 
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="TRENDCRAZE" />
+      <meta property="og:site_name" content="lETSCONNECT" />
       <meta property="og:url" content="https://mern-front-rprc.onrender.com" />
       <meta
         property="og:image:secure_url"
@@ -57,10 +57,10 @@ const Home = ({ posts }) => {
          <div className="col-md-8 offset-md-2 text-center">
            <h2 className="mb-4">Welcome !!!</h2>
            <p className="font-weight-bold">
-             TRENDCRAZE is your social network for connecting with friends, sharing
+             LETSCONNECT is your social network for connecting with friends, sharing
              stories, and discovering new trends. Whether you're here to stay updated
              on the latest news, connect with like-minded individuals, or share your
-             passions, TRENDCRAZE has something for everyone.
+             passions, LETSCONNECT has something for everyone.
            </p>
            <p className="font-italic">
              Please <Link href="/login">Login</Link> or{" "}
