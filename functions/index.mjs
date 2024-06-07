@@ -3,6 +3,6 @@ export const imageSource=(user)=>{
         return user.image.url; 
     }
     else{ 
-     return '/images/logo.jpg';  
+     return '/images/logo.png';  
     }
 };

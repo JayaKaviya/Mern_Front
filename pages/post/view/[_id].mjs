@@ -41,7 +41,7 @@ const SinglePost=({post})=>{
             return post.image.url; 
         }
         else{ 
-         return '/images/logo.jpg';  
+         return '/images/logo.png';  
         }
     }; 
 

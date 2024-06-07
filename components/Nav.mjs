@@ -28,7 +28,7 @@ const Nav = () => {
       
       <Link href="/" legacyBehavior>
         <a className={`nav-link logo ${current === "/" && 'active'}`} onClick={() => handleSetActive("/")} style={{  color: "white"}}>
-          <Avatar src="/images/logo.jpg" width="200px"/>{" "}
+          <Avatar src="/images/logo.png" width="200px"/>{" "}
           LETSCONNECT
         </a> 
       </Link> 

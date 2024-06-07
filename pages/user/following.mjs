@@ -38,7 +38,7 @@ const Following =()=>{
             return user.image.url; 
         }
         else{ 
-         return '/images/logo.jpg';  
+         return '/images/logo.png';  
         }
     }; 
 
