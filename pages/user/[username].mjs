@@ -13,7 +13,7 @@ const Username = () => {
 
     const [state, setState] = useContext(UserContext);
 
-    // State
+  
     const [user, setUser] = useState({});
 
     const router = useRouter();
@@ -49,15 +49,15 @@ const Username = () => {
                     hoverable
                     style={{ width: 400 }}
                     cover={<img src={imageSource(user)} alt={user.name} />}
-                    bordered={false} // Remove border
-                    className="custom-card" // Add custom class for styling
+                    bordered={false} 
+                    className="custom-card" 
                 >
                     <Meta
                         title={<span style={{ fontSize: 24, fontWeight: 'bold' }}>{user.name}</span>}
                         description={<p style={{ fontSize: 16 }}>{user.about}</p>}
                     />
 
-                    {/* User joined/created date */}
+                   
                     <p className='pt-2 text-muted' style={{ fontSize: 14 }}>
                         Joined {moment(user.createdAt).fromNow()}
                     </p>

@@ -13,7 +13,6 @@ const Following =()=>{
     
     const [state,setState]=useContext(UserContext);  
 
-    //state 
     const [people,setPeople]=useState([]); 
 
     useEffect(()=>{ 
@@ -48,15 +47,14 @@ const Following =()=>{
         try{ 
              const {data}=await axios.put('https://mern-back-hxv3.onrender.com/api/user-unfollow',{_id :user._id}); 
 
-               //update local storage,user & keep token 
                let auth=JSON.parse(localStorage.getItem("auth")); 
                auth.user=data; 
                localStorage.setItem("auth",JSON.stringify(auth));
  
-             //update context 
+             
                setState({...state,user:data})
              
-             //update people state                (followed user will not be there)
+           
                let filtered=people.filter((p)=> p._id !== user._id); 
                setPeople(filtered); 
  
@@ -70,7 +68,7 @@ const Following =()=>{
     return ( 
         <div className="row col-md-6 offset-md-3">
 
-       {/* <pre>{JSON.stringify(people,null,4)}</pre>      */}
+     
         
           <List itemLayout="horizontal" dataSource={people} 
          renderItem={(user)=>(

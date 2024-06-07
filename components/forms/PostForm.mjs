@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 
 const ReactQuill=dynamic(()=>import("react-quill"),{ssr : false}); 
 
-// import ReactQuill from 'react-quill';
+
 import "react-quill/dist/quill.snow.css"; 
 
 
@@ -24,23 +24,18 @@ const PostForm = ({ content, setContent, postSubmit,handleImage,uploading, image
                         className="form-control" 
                         placeholder="Write something..."
                     ></ReactQuill>
-                    {/* <textarea 
-                        value={content} 
-                        onChange={(e) => setContent(e.target.value)}
-                        className="form-control" 
-                        placeholder="Write something..."
-                    ></textarea> */}
+                  
                 </form>
             </div> 
 
 
     
-                                                                    {/* faded text */}
+                                                                   
             <div className="card-footer d-flex justify-content-between text-muted"> 
                 
                 <button disabled={!content} onClick={postSubmit} className="btn btn-primary btn-sm mt-1">Post</button> 
 
-                                      {/* //ie. jpg,jpeg,png */}
+                                    
                 <label >  
                    { 
                    image && image.url ? ( 
@@ -51,7 +46,6 @@ const PostForm = ({ content, setContent, postSubmit,handleImage,uploading, image
                    (<CameraOutlined className="mt-2"/>) 
                    }
 
-                   {/* <CameraOutlined className="mt-2"/> */}
                   <input onChange={handleImage} type="file" accept="images/*" hidden/> 
                 </label>
 

@@ -12,10 +12,9 @@ const EditPost=()=>{
     
     const [post,setPost]=useState({});
     const router=useRouter();
-    // console.log('router',router) 
+   
     const _id=router.query._id; 
 
-    //state
     const [content, setContent] = useState("");  
     const [image,setImage]=useState({}); 
     const [uploading,setUploading]=useState(false); 
@@ -27,7 +26,7 @@ const EditPost=()=>{
     const fetchPost=async()=>{ 
          
         try{ 
-            //fetched the details of post using its id from db
+           
             const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/api/user-post/${_id}`); 
             setPost(data);
             setContent(data.content); 
@@ -41,7 +40,7 @@ const EditPost=()=>{
     const postSubmit=async(e)=>{ 
 
       e.preventDefault(); 
-    //   console.log("submit post to update",content,image); 
+   
 
      try{ 
 
@@ -67,15 +66,15 @@ const EditPost=()=>{
 
     const handleImage = async (e) =>{ 
 
-        const file=e.target.files[0]; //single image from arr 
+        const file=e.target.files[0]; 
         let formData=new FormData(); 
-        formData.append('image',file); //key,actual file  
+        formData.append('image',file);  
         setUploading(true);
 
         try {
             const {data}= await axios.post("https://mern-back-hxv3.onrender.com/api/upload-image", formData);
           
-            // console.log("uploaded image =>", data); 
+           
             setImage({ 
                 url : data.url, 
                 public_id : data.public_id,
@@ -92,12 +91,7 @@ const EditPost=()=>{
 
     
     return (
-        // <>
-        // edit post with the id of  {_id} 
-
-        //   <pre>{JSON.stringify(post,null,4)}</pre>
-        
-        // </> 
+      
 
         <UserRoute>
         <div className="container-fluid">  

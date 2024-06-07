@@ -52,7 +52,7 @@ const ForgotPassword=()=> {
       catch(err) {
             
         console.log(err)
-            //  toast.error(err.response.data); 
+            
              setLoading(false);
       }
         
@@ -73,15 +73,14 @@ const ForgotPassword=()=> {
        
           <div className="d-flex flex-column align-items-center justify-content-center">
             
-        {/* bg-danger bg-gradient */}
+   
            <div > 
              <div > 
                  <h1>Forgot Password</h1>
               </div>
             </div>  
          <br/>
-          {/* {loading ?<h1>Loading</h1>:""} */}
-               
+       
 
     
 
@@ -104,7 +103,7 @@ const ForgotPassword=()=> {
                   <div className="col">
                    <Modal 
                      title="Congratulations!"
-                     visible={ok} //ok var which has true value in success
+                     visible={ok} 
                      onCancel={()=> setOk(false)} 
                      footer={null}
                      > 

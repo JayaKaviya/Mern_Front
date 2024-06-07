@@ -21,7 +21,6 @@ const People =({people,handleFollow,handleUnfollow})=>{
     return ( 
         <>  
 
-       {/* <pre>{JSON.stringify(people,null,4)}</pre>      */}
 
           <List itemLayout="horizontal" dataSource={people} 
          renderItem={(user)=>(
@@ -38,7 +37,7 @@ const People =({people,handleFollow,handleUnfollow})=>{
 
                                 
                                  {" "}  
-                                {/* {JSON.stringify(user)} */} 
+                             
 
                                 {state && state.user && user.followers && user.followers.includes(state.user._id)  ?  
                                 ( 

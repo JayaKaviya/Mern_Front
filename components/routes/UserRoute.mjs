@@ -17,12 +17,7 @@ const UserRoute = ({ children }) => {
         try {
             const { data } = await axios.get(`https://mern-back-hxv3.onrender.com/api/current-user`);  
 
-            // const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API}
-            // /current-user`, {
-            //     headers: {
-            //         "Authorization": `Bearer ${state.token}`
-            //     }
-            // }); 
+          
             if (data.ok) setOk(true); 
         } catch(err) { 
             router.push('/login'); 

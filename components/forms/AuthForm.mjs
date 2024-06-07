@@ -124,11 +124,11 @@ placeholder="Write your answer here"/>
   style={{ 
     width: '180px', 
     height:'40px',
-    backgroundColor: '#F50057', // Primary Color
-    color: 'white', // Text color
-    border: 'none', // No border
-    borderRadius: '5px', // Rounded corners
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Shadow
+    backgroundColor: '#F50057', 
+    color: 'white', 
+    border: 'none', 
+    borderRadius: '5px', 
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', 
   }} 
   data-mdb-ripple-init
 >

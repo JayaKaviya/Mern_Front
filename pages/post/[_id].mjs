@@ -28,7 +28,7 @@ const PostComments =()=>{
     } 
      
     const removeComment=async(postId,comment)=>{ 
-        //  console.log(postId,comment); 
+      
          
         let answer=window.confirm("Are you sure ?"); 
         if(!answer) return;
@@ -66,7 +66,7 @@ const PostComments =()=>{
            </a>
            </Link>
    </div>) 
-      {/* <pre>{JSON.stringify(post,null,4)}</pre>; */}
+     
 } 
 
 export default PostComments;

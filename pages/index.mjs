@@ -17,7 +17,7 @@ const Home = ({ posts }) => {
         content="A social network by Developer JayaKaviya"
       />
 
-      {/* this will be used when u post this in social media */}
+    
       <meta
         property="og:description"
         content="A social network by Developer JayaKaviya"

@@ -15,13 +15,12 @@ const Post = ({ post, handleDelete, handleLike, handleUnlike, handleComment,comm
 
     return (
         <>
-                     {/* for key, use unqiue key -without key it thrws warng */}
+                   
         
            { post && post.postedBy && ( 
            <div key={post._id} className="card mb-3">
                 <div className="card-header">
-                    {/* take 1st letter of user and make it as image right now */}
-                    {/* <Avatar size={40} > {post.postedBy.name[0]}</Avatar> to have dp as 1st letter of user */}
+                 
                     <Avatar size={40} src={imageSource(post.postedBy)} />
                     {"  "}
                     <span className="pt-2 ml-3" style={{ marginLeft: "1rem" }}>{post.postedBy.name}</span>
@@ -31,7 +30,7 @@ const Post = ({ post, handleDelete, handleLike, handleUnlike, handleComment,comm
                     {renderHTML(post.content)}
                 </div>
                 <div className="card-footer">
-                    {/* <img src={post.image && post.image.url} alt={post.postedBy.name} /> */}
+                 
                     {post.image && (
                         <PostImage url={post.image.url} />
                     )}
@@ -66,11 +65,10 @@ const Post = ({ post, handleDelete, handleLike, handleUnlike, handleComment,comm
 
                     </div>
                 </div>
-                {/* {post.content} */}
-                {/* 2 comments */}
+              
                 {post.comments && post.comments.length > 0 && (
                     <ol className="list-group" 
-                    // style={{maxHeight : '200px', overflow : 'scroll' }} 
+                  
                     >
                         {post.comments.slice(0, commentsCount).map((c) => (
                             <li key={c._id} className="list-group-item d-flex justify-content-between align-items-start">

@@ -21,7 +21,7 @@ import SearchUser from "../../components/SearchUser.mjs";
 import io from "socket.io-client"
  
 const socket=io(process.env.NEXT_PUBLIC_SOCKETIO,{ 
-   reconnection : true, //to reconnect automaticaly
+   reconnection : true, 
 }) 
 
 
@@ -31,24 +31,24 @@ const socket=io(process.env.NEXT_PUBLIC_SOCKETIO,{
 
 const Home = () => { 
     const [state, setState] = useContext(UserContext); 
-    //state
+    
     const [content, setContent] = useState("");  
     const [image,setImage]=useState({}); 
     const [uploading,setUploading]=useState(false); 
 
-    //posts 
+
     const [posts,setPosts]=useState([]); 
 
-    //people 
+ 
     const [people,setPeople]=useState([]);  
 
-    //comment 
+   
     const [comment,setComment]=useState('');
-    const [visible,setVisible]=useState(false); //modal visiblity
-    const [currentPost,setCurrentPost]=useState({}); //current post to comment
+    const [visible,setVisible]=useState(false); 
+    const [currentPost,setCurrentPost]=useState({}); 
    
     
-    //pagination 
+ 
     const [totalPosts,setTotalPosts]=useState(0);
     const [page,setPage]=useState(1);
 
@@ -65,7 +65,7 @@ const Home = () => {
          
   
     useEffect(()=>{  
-          try{                    //we can also use then instead of async await 
+          try{                   
             axios.get('https://mern-back-hxv3.onrender.com/api/total-posts').then(({data}) => setTotalPosts(data) );
           } 
           catch(err){ 
@@ -77,9 +77,7 @@ const Home = () => {
     const newsFeed=async()=>{ 
         try{ 
             const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/api/news-feed/${page}`) 
-            // console.log('user posts', data) 
-            //user posts
-
+            
     
             setPosts(data);
         }catch(err){ 
@@ -103,24 +101,22 @@ const Home = () => {
 
     const postSubmit = async(e) => { 
         e.preventDefault(); 
-        // console.log('post =>', content); 
-
+       
         try{ 
              const {data}= await axios.post('https://mern-back-hxv3.onrender.com/api/create-post',{content,image}); 
-            //  console.log("create data response =>",data) 
-
+          
              if(data.error){ 
                 toast.error(data.error)
              }
              else{  
 
-                setPage(1); //go to page 1 if user submited a post
+                setPage(1); 
                 newsFeed();
                 toast.success('Post created') 
                 setContent(""); 
                 setImage({}); 
 
-                //socket 
+           
                 socket.emit("new-post",data);
              }
         }catch(err){ 
@@ -130,22 +126,18 @@ const Home = () => {
     
     const handleImage = async (e) =>{ 
 
-        const file=e.target.files[0]; //single image from arr 
+        const file=e.target.files[0]; 
         let formData=new FormData(); 
-        formData.append('image',file); //key,actual file  
-        // formData.append('content',content); 
-
-        // console.log([...formData]); 
+        formData.append('image',file); 
         
         setUploading(true); 
       
-        //     const { url, public_id } = response.data; // Accessing 'url' and 'public_id' directly
-        //     console.log("uploaded image =>", url, public_id);
+    
 
         try {
             const {data}= await axios.post("https://mern-back-hxv3.onrender.com/api/upload-image", formData);
           
-            // console.log("uploaded image =>", data); 
+          
             setImage({ 
                 url : data.url, 
                 public_id : data.public_id,
@@ -180,24 +172,22 @@ const Home = () => {
     }
  
       const handleFollow =async(user)=>{ 
-        // console.log('add this user to following list',user); 
+        
         try{ 
            const {data}=await axios.put('https://mern-back-hxv3.onrender.com/api/user-follow',{_id:user._id}); 
-           //    console.log('Handle follow response =>',data); 
-
-            //update local storage,user & keep token 
+           
               let auth=JSON.parse(localStorage.getItem("auth")); 
               auth.user=data; 
               localStorage.setItem("auth",JSON.stringify(auth));
 
-            //update context 
+        
               setState({...state,user:data})
             
-            //update people state                (followed user will not be there)
+           
               let filtered=people.filter((p)=> p._id !== user._id); 
               setPeople(filtered); 
 
-            // re-render posts in newsfeed 
+          
              newsFeed();
              toast.success(`Following ${user.name}`);
         }catch(err){ 

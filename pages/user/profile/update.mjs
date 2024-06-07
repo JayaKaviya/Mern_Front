@@ -23,7 +23,6 @@ const ProfileUpdate=()=> {
     const [ok,setOk]=useState(false); 
     const [loading,setLoading]=useState(false);
 
-    //profile image 
     const [image,setImage]=useState(); 
     const [uploading,setUploading]=useState(false);
     
@@ -48,9 +47,7 @@ const ProfileUpdate=()=> {
         try{ 
 
           setLoading(true);
-           // console.log(name,email,password,secret); 
-           // const {data}=await axios.post(`${process.env.NEXT_PUBLIC_API}/register`,{ 
-           //name:name - when key and value same , no need to write like this . 
+          
 
             const {data}=await axios.put(`https://mern-back-hxv3.onrender.com/api/profile-update`,{  
             username, 
@@ -62,20 +59,19 @@ const ProfileUpdate=()=> {
             image,
     
            });  
-          // console.log('update response',data);
+          
           if (data.error){ 
             toast.error(data.error); 
             setLoading(false);
           }
           else{ 
           
-           // update local storage,update user , keep token 
-                  //get ls data , here parse : convert json to js object
+        
            let auth=JSON.parse(localStorage.getItem("auth")); 
            auth.user=data;
            localStorage.setItem('auth',JSON.stringify(auth));
            
-           // update context  
+           
            setState({...state,user:data});  
 
            setOk(data,ok); 
@@ -93,17 +89,15 @@ const ProfileUpdate=()=> {
     
      const handleImage = async (e) =>{ 
 
-      const file=e.target.files[0]; //single image from arr 
+      const file=e.target.files[0]; 
       let formData=new FormData(); 
-      formData.append('image',file); //key,actual file  
-      // formData.append('content',content); 
-
-      // console.log([...formData]); 
+      formData.append('image',file);  
+    
       setUploading(true); 
       try {
           const {data}= await axios.post("https://mern-back-hxv3.onrender.com/api/upload-image", formData);
         
-          // console.log("uploaded image =>", data); 
+       
           setImage({ 
               url : data.url, 
               public_id : data.public_id,
@@ -119,20 +113,20 @@ const ProfileUpdate=()=> {
 
     return( 
         <div className="container-fluid">  
-        {/* bg-danger bg-gradient */}
+       
            <div className="row py-5 text-light bg-profile-image"> 
              <div className="col text-center"> 
                  <h1 style={{color : 'white'}}>Profile</h1>
               </div>
             </div>  
          
-          {/* {loading ?<h1>Loading</h1>:""} */}
+         
                
 
             <div className="row py-5"> 
                <div className="col-md-6 offset-md-3">
                  
-                  {/* upload image */} 
+                  
                   <label  className="d-flex justify-content-center h5">  
                    { 
                    image && image.url ? ( 
@@ -143,7 +137,7 @@ const ProfileUpdate=()=> {
                    (<CameraOutlined className="mt-2"/>) 
                    }
 
-                   {/* <CameraOutlined className="mt-2"/> */}
+                  
                   <input onChange={handleImage} type="file" accept="images/*" hidden/> 
                 </label>
 
@@ -176,7 +170,7 @@ const ProfileUpdate=()=> {
                   <div className="col">
                    <Modal 
                      title="Congratulations!"
-                     visible={ok} //ok var which has true value in success
+                     visible={ok} 
                      onCancel={()=> setOk(false)} 
                      footer={null}
                      > 
@@ -186,17 +180,7 @@ const ProfileUpdate=()=> {
                   </div> 
                   </div>
                   
-                  {/* <div className="row">  
-                  <div className="col"> 
-                   <p className="text-center">Already registered? {" "}
-                   <Link href="/login" legacyBehavior>
-                       <a >Login</a>  
-                    </Link>
-                    </p>
-                  </div>
-
-                  </div> */}
-
+                
 
                  </div>
         

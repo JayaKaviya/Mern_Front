@@ -14,13 +14,13 @@ const SearchUser=()=>{
 
      const searchUser=async(e)=>{ 
         e.preventDefault(); 
-        //   console.log(`Find "${query}" from db`); 
+      
       try{ 
 
          const {data}=await axios.get(`https://mern-back-hxv3.onrender.com/api/search-user/${query}`); 
-         // console.log('search user res =>',data);
+      
          setResult(data); 
-        //  console.log(data);
+        
          if (data.error=="No User found")
           { 
             toast.error(`No User found`); 
@@ -34,20 +34,17 @@ const SearchUser=()=>{
   
 
      const handleFollow =async(user)=>{ 
-      // console.log('add this user to following list',user); 
+     
       try{ 
          const {data}=await axios.put('https://mern-back-hxv3.onrender.com/api/user-follow',{_id:user._id}); 
-         //    console.log('Handle follow response =>',data); 
-
-          //update local storage,user & keep token 
+        
             let auth=JSON.parse(localStorage.getItem("auth")); 
             auth.user=data; 
             localStorage.setItem("auth",JSON.stringify(auth));
 
-          //update context 
+         
             setState({...state,user:data})
-          
-          //update people state                (followed user will not be there)
+      
             let filtered=result.filter((p)=> p._id !== user._id); 
             setResult(filtered); 
 
@@ -62,15 +59,15 @@ const SearchUser=()=>{
       try{ 
            const {data}=await axios.put('https://mern-back-hxv3.onrender.com/api/user-unfollow',{_id :user._id}); 
 
-             //update local storage,user & keep token 
+           
              let auth=JSON.parse(localStorage.getItem("auth")); 
              auth.user=data; 
              localStorage.setItem("auth",JSON.stringify(auth));
 
-           //update context 
+         
              setState({...state,user:data})
            
-           //update people state                (followed user will not be there)
+          
              let filtered=result.filter((p)=> p._id !== user._id); 
              setResult(filtered); 
 
@@ -89,7 +86,7 @@ const SearchUser=()=>{
              <input 
              onChange={(e)=> {
                setQuery(e.target.value); 
-               setResult([]); //when user is typing, we can hide the result
+               setResult([]); 
 
              }} value={query} 
             className="form-control"  

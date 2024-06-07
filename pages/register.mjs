@@ -27,9 +27,7 @@ const Register=()=> {
         try{ 
 
           setLoading(true);
-        // console.log(name,email,password,secret); 
-        // const {data}=await axios.post(`${process.env.NEXT_PUBLIC_API}/register`,{ 
-            //name:name - when key and value same , no need to write like this . 
+       
 
             const {data}=await axios.post(`https://mern-back-hxv3.onrender.com/api/register`,{ 
             name,   
@@ -75,7 +73,7 @@ const Register=()=> {
       <div className="d-flex flex-column align-items-center justify-content-center">
          
 
-        {/* bg-danger bg-gradient */}
+      
            <div > 
              <div > 
              {" "}
@@ -84,7 +82,7 @@ const Register=()=> {
               </div>
             </div>  
          
-          {/* {loading ?<h1>Loading</h1>:""} */}
+         
                
 
         
@@ -121,7 +119,7 @@ const Register=()=> {
                   <div className="col">
                    <Modal 
                      title="Congratulations!"
-                     visible={ok} //ok var which has true value in success
+                     visible={ok} 
                      onCancel={()=> setOk(false)} 
                      footer={null}
                      > 

@@ -9,8 +9,8 @@ const UserContext=createContext();
 
 const UserProvider=({children})=>{ 
       const [state,setState]=useState({ 
-        user:{}, //obj
-        token:"", //str
+        user:{}, 
+        token:"", 
       }); 
  
    useEffect(()=>{ 

@@ -16,9 +16,9 @@ const PostList=({posts,handleDelete,handleLike,handleUnlike,handleComment,remove
     const router=useRouter();
 
    return <>
-      {/* post list {posts.length} */}
+    
     {
-                 // map iterate throught only array not obj
+                 
      posts && posts.map((post)=> 
      <Post
        
