@@ -37,7 +37,7 @@ const Username = () => {
         if (user.image) {
             return user.image.url;
         } else {
-            return '/images/logo.png';
+            return '/images/logo.jpg';
         }
     };
 
