@@ -20,11 +20,11 @@ const Home = ({ posts }) => {
       {/* this will be used when u post this in social media */}
       <meta
         property="og:description"
-        content="A social network app by Developer JayaKaviya"
+        content="A social network by Developer JayaKaviya"
       />
 
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="lETSCONNECT" />
+      <meta property="og:site_name" content="LETSCONNECT" />
       <meta property="og:url" content="https://mern-front-rprc.onrender.com" />
       <meta
         property="og:image:secure_url"
